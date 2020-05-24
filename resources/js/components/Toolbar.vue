@@ -12,25 +12,12 @@
       <v-spacer></v-spacer>
 
     <div>
-      <router-link to="/forum">
-        <v-btn icon>
-          <v-icon>mdi-library</v-icon>
-        </v-btn>
-      </router-link>
-      
-
-      <v-btn icon>
-        <v-icon>mdi-magnify-plus</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-server</v-icon>
-      </v-btn>
-
-      <router-link to="/login">
-        <v-btn icon>
-          <v-icon>mdi-login</v-icon>
-        </v-btn>
+      <router-link
+      v-for="item in items"
+      :key="item.title"
+      :to="item.to"
+      v-if="item.show">
+        <v-btn ><v-icon>{{item.title}}</v-icon></v-btn>
       </router-link>
     </div>
 
@@ -57,3 +44,25 @@
     </v-app-bar>
   </div>
 </template>
+
+
+<script>
+export default {
+  data(){
+    return {
+      items: [
+        {title: 'mdi-library', to:'/forum', show: true},
+        {title: 'mdi-comment-plus-outline', to:'/ask', show: User.loggedIn()},
+        {title: 'mdi-database', to:'/category', show: User.loggedIn()},
+        {title: 'mdi-login', to:'/login', show: !User.loggedIn()},
+        {title: 'mdi-logout', to:'/logout', show: User.loggedIn()},
+      ]
+    }
+  },
+  created(){
+    EventBus.$on('logout', () => {
+      User.logout()
+    })
+  }
+}
+</script>

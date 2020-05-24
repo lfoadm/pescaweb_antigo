@@ -11,6 +11,26 @@
     <v-app>
       <v-content>
         <v-container><h1>Leandro Ferreira oliveira</h1></v-container>
+
+
+        <router-link to="/forum">
+          <v-btn icon>
+            <v-icon>mdi-library</v-icon>
+          </v-btn>
+        </router-link>
+        
+  
+        <v-btn icon>
+          <v-icon>mdi-magnify-plus</v-icon>
+        </v-btn>
+  
+        <v-btn icon>
+          <v-icon>mdi-server</v-icon>
+        </v-btn>
+
+        
+
+
       </v-content>
     </v-app>
   </div>
