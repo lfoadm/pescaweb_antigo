@@ -11,9 +11,13 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-library</v-icon>
-      </v-btn>
+    <div>
+      <router-link to="/forum">
+        <v-btn icon>
+          <v-icon>mdi-library</v-icon>
+        </v-btn>
+      </router-link>
+      
 
       <v-btn icon>
         <v-icon>mdi-magnify-plus</v-icon>
@@ -23,9 +27,12 @@
         <v-icon>mdi-server</v-icon>
       </v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-login</v-icon>
-      </v-btn>
+      <router-link to="/login">
+        <v-btn icon>
+          <v-icon>mdi-login</v-icon>
+        </v-btn>
+      </router-link>
+    </div>
 
       <!-- <v-menu
         left
