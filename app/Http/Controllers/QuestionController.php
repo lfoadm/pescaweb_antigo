@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Http\Resources\QuestionResource;
 use App\Model\Question;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class QuestionController extends Controller
 {
@@ -47,11 +49,10 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //User::auth()->question()->create($request->all());
-
-        Question::create($request->all());
-        return Response('Created', Response::HTTP_CREATED);
+    {        
+        $question = auth()->user()->question()->create($request->all());
+        return Response(new QuestionResource($question), Response::HTTP_CREATED);
+        
     }
 
     /**

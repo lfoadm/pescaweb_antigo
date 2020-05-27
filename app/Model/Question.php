@@ -4,9 +4,20 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use Illuminate\Support\Str;
 
 class Question extends Model
 {
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($question){
+            $question->slug = Str::slug($question->title);
+        });
+    }
+    
+    
     public function getRouteKeyName()
     {
         return 'slug';
@@ -15,7 +26,8 @@ class Question extends Model
 
     //protected $fillable = ['title', 'slug', 'body', 'category_id', 'user_id']; ##o $guarded substitui o fillablle
 
-    protected $guarded = [];
+    // protected $guarded = [];
+    protected $fillable = ['title','slug', 'body', 'user_id', 'category_id'];
 
     public function user()
     {

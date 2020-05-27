@@ -17,7 +17,7 @@
       :key="item.title"
       :to="item.to"
       v-if="item.show">
-        <v-btn ><v-icon>{{item.title}}</v-icon></v-btn>
+        <v-btn icon><v-icon>{{item.title}}</v-icon></v-btn>
       </router-link>
     </div>
 
