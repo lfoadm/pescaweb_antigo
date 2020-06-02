@@ -53,7 +53,7 @@ export default {
       items: [
         {title: 'mdi-library', to:'/forum', show: true},
         {title: 'mdi-comment-plus-outline', to:'/ask', show: User.loggedIn()},
-        {title: 'mdi-database', to:'/category', show: User.loggedIn()},
+        {title: 'mdi-database', to:'/category', show: User.admin()},
         {title: 'mdi-login', to:'/login', show: !User.loggedIn()},
         {title: 'mdi-logout', to:'/logout', show: User.loggedIn()},
       ]
